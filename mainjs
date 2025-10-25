@@ -1,0 +1,66 @@
+
+window.addEventListener("DOMContentLoaded", () => {
+  /* ======================
+  ====== Active Page ======
+  ====================== */ 
+  let path = window.location.pathname.replace(/\/$/, "");
+
+  path = path.replace(/^\/afandina/, "");
+
+  // خريطة الصفحات
+  const pageMap = {
+    "": "home-head",
+    "/about": "about-head",
+    "/cars": "cars-head",
+    "/contact": "contact-head",
+  };
+
+  // الحصول على ID العنصر بناءً على الرابط
+  const parentId = pageMap[path];
+
+  if (parentId) {
+    const parentElement = document.getElementById(parentId);
+
+    if (parentElement) {
+        parentElement.classList.add("active-header-link");
+    }
+    
+    //  Mobile And Tablet 
+    const mobileParentElement = document.querySelector(`.${parentId}`);
+
+    if (mobileParentElement) {
+        mobileParentElement.classList.add("active-mb-header-link");
+    }
+  }
+
+
+
+
+  /* ======================
+  ====== Mobile Menu ======
+  ====================== */ 
+  const menuIcon = document.getElementById("my-mb-menu-btn");
+  const menuBox = document.getElementById("my-mb-menu");
+  
+  menuIcon.addEventListener("click", function (e) {
+    menuBox.classList.remove("menu-hidden");
+  });
+
+  // لما تدوس على البوكس نفسه
+  menuBox.addEventListener("click", function (e) {
+    e.stopPropagation(); // علشان الضغط جواه ميتحسبش كـ "خارج"
+  });
+
+  // لما تدوس في أي مكان تاني
+  document.addEventListener("click", function (e) {
+    // لو الكليك مش جوه الأيقونة ولا البوكس
+    if (!menuBox.contains(e.target) && !menuIcon.contains(e.target)) {
+      menuBox.classList.add("menu-hidden");
+    }
+  });
+
+
+  /* ======================
+  ====== ------ ---- ======
+  ====================== */ 
+});

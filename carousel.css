@@ -1,0 +1,21 @@
+Carousel .cards {
+    display: flex;
+    gap: 20px;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.cards::-webkit-scrollbar {
+    display: none;
+}
+
+.cards .card {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    overflow: hidden;
+    width: 300px;
+    height: 400px;
+    border-radius: 10px;
+    background-color: #eee;
+}

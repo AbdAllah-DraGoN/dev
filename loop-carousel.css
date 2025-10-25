@@ -1,0 +1,102 @@
+/*  === HTML STRUCTURE ===
+div.dr-loop-carousel
+--- div.dr-group
+------ div.dr-item
+--------- img
+------ div.dr-item
+--------- img
+
+--- div.dr-group
+------ div.dr-item
+--------- img
+------ div.dr-item
+--------- img
+*/
+
+/* 
+    CSS STYLE
+*/
+.dr-loop-carousel {
+    margin: 0 auto !important;
+    overflow-x: auto;
+    flex-direction: row !important;
+    max-width: 1170px !important;
+    opacity: 0.5 !important;
+    pointer-events: none;
+}
+
+.dr-loop-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.dr-group {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    animation: dr-loop-scroll 30s infinite linear;
+    padding-right: 100px;
+    width: fit-content !important;
+    min-width: fit-content !important;
+}
+
+.dr-item {
+    flex: 0 0 150px !important;
+    max-height: 150px !important;
+}
+
+.dr-item img {
+    object-fit: contain !important;
+    max-width: 150px;
+    max-height: 150px;
+}
+
+@keyframes dr-loop-scroll {
+    from {
+        translate: 0;
+    }
+
+    to {
+        translate: -100%;
+    }
+}
+
+/*  */
+@media(max-width: 1024px) {
+    .dr-group {
+        animation: dr-loop-scroll 25s infinite linear;
+        width: fit-content !important;
+        min-width: fit-content !important;
+    }
+
+    .dr-item {
+        flex: 0 0 100px !important;
+        max-height: 100px !important;
+    }
+
+    .dr-item img {
+        max-width: 100px;
+        max-height: 100px;
+    }
+}
+
+@media(max-width: 767px) {
+    .dr-group {
+        animation: dr-loop-scroll 20s infinite linear;
+        padding-right: 70px;
+        width: fit-content !important;
+        min-width: fit-content !important;
+    }
+
+    .dr-item {
+        flex: 0 0 80px !important;
+        max-height: 80px !important;
+    }
+
+    .dr-item img {
+        max-width: 80px;
+        max-height: 80px;
+    }
+}
+
+/*=== Loop Carousel ===*/
