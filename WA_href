@@ -1,0 +1,11 @@
+https://wa.me/[phone_number_without_plus]?text=[your_message_in_URL_format]
+
+Replace [phone_number_without_plus] with your phone number without the “+” sign.
+Example:
+
+
+Replace [your_message_in_URL_format] with your message, converted to URL format:
+
+A space = %20
+
+A new line = %0A
